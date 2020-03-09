@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feedback"
+    android:background="@drawable/bg">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Feedback"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textSize="80dp"
+        android:id="@+id/t"
+        android:fontFamily="sans-serif-condensed-medium"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/t"
+        android:hint="Enter your feedback please..."
+        android:id="@+id/fi"
+        android:layout_marginTop="50dp"
+        />
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/fi"
+        android:layout_centerInParent="true"
+        android:hint="Enter your name please..(leave blank for anonimity)"
+        android:id="@+id/ni"
+        android:layout_marginTop="50dp"
+        />
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/bf"
+        android:layout_below="@+id/ni"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:text="Submit!"
+        />
+</RelativeLayout>

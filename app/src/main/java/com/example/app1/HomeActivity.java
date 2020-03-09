@@ -2,65 +2,62 @@ package com.example.app1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.sql.*;
 
 public class HomeActivity extends AppCompatActivity {
-    EditText_txtUser,_txtPass;
-    Button_btnLOGIN;
-    Spinner_spinner;
+    EditText _txtUser;
+    EditText _txtPass;
+    Button _btnLOGIN;
+    Spinner _spinner;
 
-private void
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Button b  = (Button)findViewById(R.id.b);
         _txtPass=(EditText)findViewById(R.id.txtPass);
         _txtUser=(EditText)findViewById(R.id.txtUser);
-        _btnLOGIN=(Button)findViewById(R.id.btnLOGIN);
+        String[] arraySpinner = new String[] {"User","Guard"};
         _spinner=(Spinner)findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(context:this,R.array.usertype,R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         _spinner.setAdapter(adapter);
-        _btnLogin.setOnClickListener(new View.OnClickListener() {
+        b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                class UserDAO {
-                    int mobile=Integer.parseInt(_txtUser.getText());
-                    String voter_id=_txtPass.getText();
-                    public User checkLogin(mobile, voter_id) throws SQLException,
-                            ClassNotFoundException {
-                        String jdbcURL = "jdbc:mysql://localhost:3306/login";
-                        String dbUser = "root";
-                        String dbPassword = "tanisha";
+                String mobile = (_txtUser.getText().toString());
+                String voter_id=_txtPass.getText().toString();
+                String item=_spinner.getSelectedItem().toString();
+                if (mobile.equals("9131798517") && voter_id.equals("TKC1234567") && item.equals("User")) {
+                    Intent fintent = new Intent(getApplicationContext(), MainHomActivity.class);
+                    startActivity(fintent);
+                }
+                else if (mobile.equals("8527684949") && voter_id.equals("SMC1234567") && item.equals("User")) {
+                    Intent fintent = new Intent(getApplicationContext(), MainHomActivity.class);
+                    startActivity(fintent);
+                }
+                else if (mobile.equals("9988776655") && voter_id.equals("GRD1234567") && item.equals("Guard")) {
+                    Intent fintent = new Intent(getApplicationContext(), MainHomActivity.class);
+                    startActivity(fintent);
+                }
+                else{
+                    Intent hintent = new Intent(HomeActivity.this, HomeActivity.class);
+                    startActivity(hintent);
+                }
 
-                        Class.forName("com.mysql.jdbc.Driver");
-                        Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-                        String sql = "SELECT * FROM users WHERE mobile = ? and voter_id = ?";
-                        PreparedStatement statement = connection.prepareStatement(sql);
-                        statement.setString(1, mobile);
-                        statement.setString(2, voter_id);
 
-                        ResultSet result = statement.executeQuery();
 
-                        User user = null;
-
-                        if (result.next()) {
-                            user = new User();
-                            user.setFullname(result.getString("fullname"));
-                            user.setEmail(email);
-                        }
-
-                        connection.close();
-
-                        return user;
                     }
                 }
-            }
+            );
         }
-        );
     }
-}
+

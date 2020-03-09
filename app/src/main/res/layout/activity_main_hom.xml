@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainHomActivity"
+    android:background="@drawable/bg">
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:text="Count"
+        android:id="@+id/c"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="-20dp"
+        />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/c"
+        android:id="@+id/r"
+        android:text="Information"
+        android:layout_marginBottom="20dp"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/r"
+        android:id="@+id/f"
+        android:text="Feedback"
+        android:layout_marginBottom="20dp"
+    />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/c"
+        android:layout_marginBottom="50dp"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:text="Special Request"
+        android:layout_below="@id/f"
+        android:id="@+id/sp"
+    />
+
+</RelativeLayout>
